@@ -1,0 +1,23 @@
+import { createThirdwebClient, getContract, resolveMethod } from "thirdweb";
+import { defineChain } from "thirdweb/chains";
+import { ThirdwebProvider } from "thirdweb/react";
+
+// create the client with your clientId, or secretKey if in a server environment
+export const client = createThirdwebClient({
+  clientId: "YOUR_CLIENT_ID"
+});
+
+// connect to your contract
+export const contract = getContract({
+  client,
+  chain: defineChain(8453),
+  address: "0x60adA764a397833713a4c54E4C974e26a946A27d"
+});
+
+function App() {
+  return (
+    <ThirdwebProvider>
+      <Component />
+    </ThirdwebProvider>
+  )
+}
